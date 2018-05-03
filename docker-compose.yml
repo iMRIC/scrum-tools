@@ -5,7 +5,7 @@ version: "3.1"
 services:
 
     mysql:
-      image: mysql:8.0
+      image: mysql:5.6
       container_name: scrum-tools-mysql
       working_dir: /application
       volumes:
@@ -14,6 +14,7 @@ services:
         - MYSQL_ROOT_PASSWORD=dbrootpw
         - MYSQL_USER=dbuser
         - MYSQL_PASSWORD=dbpw
+        - MYSQL_DATABASE=scrumtools
       ports:
         - "8002:3306"
 
