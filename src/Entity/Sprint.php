@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SprintRepository")
+ * @ApiResource()
  */
 class Sprint
 {
@@ -100,6 +102,6 @@ class Sprint
 
     public function __toString()
     {
-        return $this->getName();
+        return (string) $this->getId();
     }
 }

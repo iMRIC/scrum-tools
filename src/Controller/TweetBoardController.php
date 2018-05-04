@@ -4,9 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Sprint;
 use App\Entity\TweetMessage;
+use App\Form\TweetMessageType;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,7 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class TweetBoardController extends Controller
 {
     /**
-     * @Route("/tweetboard", name="tweet_board")
+     * @Route("/tweet/board", name="tweet_board")
      */
     public function index()
     {
@@ -26,7 +31,7 @@ class TweetBoardController extends Controller
     }
 
     /**
-     * @Route("/tweetboard/{sprint}", name="tweet_board_sprint")
+     * @Route("/tweet/board/{sprint}", name="tweet_board_sprint")
      */
     public function boardForSprint(Request $request, $sprint)
     {
@@ -34,42 +39,9 @@ class TweetBoardController extends Controller
             ->getRepository(Sprint::class)
             ->find($sprint);
 
-        $emptyTweet = new TweetMessage();
-        $form = $this->createFormBuilder($emptyTweet)
-            ->setAction($this->generateUrl('tweet_board_new_message'))
-            ->add('message', TextType::class)
-            ->add('sprint', HiddenType::class)
-            ->add('save', SubmitType::class, ['label' => 'Tweet'])
-            ->getForm();
-
         return $this->render('tweet_board/sprint.html.twig',
             [
-                'newTweetForm' => $form->createView(),
                 'sprint' => $sprint,
             ]);
-    }
-
-    /**
-     * @Route("/tweetboard/message/new", name="tweet_board_new_message")
-     */
-    public function newTweet(Request $request)
-    {
-        $emptyTweet = new TweetMessage();
-        $form = $this->createFormBuilder($emptyTweet)
-            ->add('message', TextType::class)
-            ->add('sprint', HiddenType::class)
-            ->add('save', SubmitType::class, ['label' => 'Tweet'])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $emptyTweet = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($emptyTweet);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('tweet_board_sprint', ['sprint' => $emptyTweet->getSprint()->getId()]);
     }
 }

@@ -7,13 +7,14 @@ window.jQuery = $;
 $(document).ready(
     function () {
         $('.js-like').click(function() {
-            $(this).closest('.TweetMessage-Likes').find('.js-likesCount').html('1000');
-            // $.ajax({
-            //     url: "/like",
-            //     context: document.body
-            // }).success(function(response) {
-            //     $('.js-likesCount').innerText(response.likes);
-            // });
+            var messageId = $(this).data('id');
+            $.ajax({
+                url: "/api/tweet_likes",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: '{"Message": "/api/tweet_messages/' + messageId + '"}'
+            });
         });
     }
 );
