@@ -12,9 +12,6 @@ Encore
     .enableVersioning(Encore.isProduction())
     .addEntry('tweet-board', publicFolder + 'tweet-board.js')
     .enableSassLoader()
-
-    // uncomment for legacy applications that require $/jQuery as a global variable
-    // .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

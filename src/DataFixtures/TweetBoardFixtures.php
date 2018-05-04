@@ -34,15 +34,15 @@ class TweetBoardFixtures extends Fixture
 
         $like1 = new TweetLike();
         $manager->persist($like1);
-        $like1->setMessage($message1);
+        $like1->setMessage($message2);
 
         $like2 = new TweetLike();
         $manager->persist($like2);
-        $like2->setMessage($message1);
+        $like2->setMessage($message2);
 
         $like3 = new TweetLike();
         $manager->persist($like3);
-        $like3->setMessage($message2);
+        $like3->setMessage($message3);
 
         $manager->flush();
     }
