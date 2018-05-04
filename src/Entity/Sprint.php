@@ -19,6 +19,11 @@ class Sprint
     private $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $number;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -36,6 +41,18 @@ class Sprint
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -83,6 +100,6 @@ class Sprint
 
     public function __toString()
     {
-        return "Sprint #" . $this->id;
+        return $this->getName();
     }
 }
