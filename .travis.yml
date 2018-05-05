@@ -6,3 +6,4 @@ before_script:
   - composer install
 script:
   - ./vendor/bin/simple-phpunit
+  - php bin/console security:check
