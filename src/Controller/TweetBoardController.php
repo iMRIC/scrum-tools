@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Sprint;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -27,7 +26,7 @@ class TweetBoardController extends Controller
     /**
      * @Route("/{sprint}", name="tweet_board_sprint")
      */
-    public function boardForSprint(Request $request, $sprint)
+    public function boardForSprint($sprint)
     {
         $sprint = $this->getDoctrine()
             ->getRepository(Sprint::class)

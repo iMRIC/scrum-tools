@@ -17,10 +17,10 @@
 
     <h1>Sprint #{{ sprint.number }}</h1>
 
-    <form action="#">
-        <input type="text">
-        <input type="hidden" name="sprint" value="{{ sprint.id }}">
-        <input type="submit" value="Tweet">
+    <form action="#" class="js-tweetForm tweetForm">
+        <input type="text" class="js-tweetForm-Message tweetForm-Message">
+        <input type="hidden" class="js-tweetForm-Sprint tweetForm-Sprint" name="sprint" value="{{ sprint.id }}">
+        <input type="submit" class="tweetForm-Submit" value="Tweet">
     </form>
 
     Tweets during sprint:
