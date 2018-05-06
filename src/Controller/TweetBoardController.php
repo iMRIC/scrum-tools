@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/tweet/board")
+ * @Route("/tweet")
  */
 class TweetBoardController extends Controller
 {
