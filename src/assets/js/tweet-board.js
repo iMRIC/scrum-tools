@@ -8,10 +8,12 @@ const API_TWEET_LIKES = '/api/tweet_likes';
 const API_TWEET_MESSAGES = '/api/tweet_messages';
 const API_SPRINT = '/api/sprints';
 
-const CLASS_JS_LIKES_COUNT = '.js-likesMessageId-';
+const IDENTIFIER_JS_LIKES_COUNT = '.js-likesMessageId-';
+const IDENTIFIER_JS_BOARD = '#js-board';
 
 $(document).ready(
     function () {
+        $(IDENTIFIER_JS_BOARD).fadeIn(1000);
 
         $('.js-tweetForm').submit(function() {
             var message = $('.js-tweetForm-Message').val();
@@ -32,8 +34,8 @@ $(document).ready(
 
         $('.js-like').click(function() {
             var messageId = $(this).data('id');
-            var likesCount = $(CLASS_JS_LIKES_COUNT + messageId).html();
-            $(CLASS_JS_LIKES_COUNT + messageId).html(parseInt(likesCount) + 1);
+            var likesCount = $(IDENTIFIER_JS_LIKES_COUNT + messageId).html();
+            $(IDENTIFIER_JS_LIKES_COUNT + messageId).html(parseInt(likesCount) + 1);
             $.ajax({
                 url: API_TWEET_LIKES,
                 type: "POST",
@@ -58,7 +60,7 @@ updateLikesCount = function(messageId) {
         contentType: "application/json; charset=utf-8",
         success: function(result) {
             var total = result.likes.length;
-            $(CLASS_JS_LIKES_COUNT + messageId).html(total);
+            $(IDENTIFIER_JS_LIKES_COUNT + messageId).html(total);
         }
     });
 }

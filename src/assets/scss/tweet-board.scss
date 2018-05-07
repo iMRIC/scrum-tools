@@ -1,5 +1,9 @@
 @import '_variables';
 
+.Board {
+  display: none;
+}
+
 .TweetMessage {
 
   border: 1px solid $color-blue;
