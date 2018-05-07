@@ -23,7 +23,7 @@
         <input type="submit" class="tweetForm-Submit" value="Tweet">
     </form>
 
-    Tweets during sprint:
+    <h3>Tweets during sprint:</h3>
     {% for message in sprint.messages %}
         <div class="TweetMessage">
             <span class="TweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
