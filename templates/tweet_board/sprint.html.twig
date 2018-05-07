@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tweet Board{% endblock %}
+{% block title %}Scrum Toolbox{% endblock %}
 
 {% block stylesheets %}
     <link href="{{ asset('build/tweet-board.css') }}" type="text/css" rel="stylesheet"/>
@@ -12,26 +12,29 @@
     <script src="{{ asset('build/tweet-board.js') }}" type="text/javascript"></script>
 {% endblock %}
 
-{% block body %}
-
-
-    <h1>Sprint #{{ sprint.number }}</h1>
-
-    <form action="#" class="js-tweetForm tweetForm">
-        <input type="text" class="js-tweetForm-Message tweetForm-Message">
+{% block searchForm %}
+    <form class="form-inline my-2 my-lg-0 js-tweetForm tweetForm">
+        <input class="form-control mr-sm-2 js-tweetForm-Message" type="search" placeholder="message" aria-label="Message">
         <input type="hidden" class="js-tweetForm-Sprint tweetForm-Sprint" name="sprint" value="{{ sprint.id }}">
-        <input type="submit" class="tweetForm-Submit" value="Tweet">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tweet!</button>
     </form>
+{% endblock %}
 
-    <h3>Tweets during sprint:</h3>
-    {% for message in sprint.messages %}
-        <div class="TweetMessage">
-            <span class="TweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
-            <span class="js-TweetMessage-Likes TweetMessage-Likes">
+{% block body %}
+    <br>
+    <br>
+    <div class="container">
+        <h3>Sprint #{{ sprint.number }}</h3>
+        <br>
+        <h5>Tweets during the sprint:</h5>
+        {% for message in sprint.messages %}
+            <div class="TweetMessage">
+                <span class="TweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
+                <span class="js-TweetMessage-Likes TweetMessage-Likes">
                 <span class="fas fa-heart js-like" data-id="{{ message.id }}"></span>
                 <span class="js-likesCount js-likesMessageId-{{ message.id }}">{{ message.likes.count }}</span>
             </span>
-        </div>
-    {% endfor %}
-
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
