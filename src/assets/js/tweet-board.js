@@ -32,7 +32,8 @@ $(document).ready(
 
         $('.js-like').click(function() {
             var messageId = $(this).data('id');
-            $(CLASS_JS_LIKES_COUNT + messageId).css('visibility', 'hidden');
+            var likesCount = $(CLASS_JS_LIKES_COUNT + messageId).html();
+            $(CLASS_JS_LIKES_COUNT + messageId).html(parseInt(likesCount) + 1);
             $.ajax({
                 url: API_TWEET_LIKES,
                 type: "POST",
@@ -58,7 +59,6 @@ updateLikesCount = function(messageId) {
         success: function(result) {
             var total = result.likes.length;
             $(CLASS_JS_LIKES_COUNT + messageId).html(total);
-            $(CLASS_JS_LIKES_COUNT + messageId).css('visibility', 'visible');
         }
     });
 }
