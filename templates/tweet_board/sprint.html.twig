@@ -27,11 +27,11 @@
         <h3>Sprint #{{ sprint.number }}</h3>
         <br>
         <h5>Tweets during the sprint:</h5>
-        <div id="js-board" class="Board">
+        <div id="js-board" class="board">
             {% for message in sprint.messages %}
-                <div class="TweetMessage">
-                    <span class="TweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
-                    <span class="js-TweetMessage-Likes TweetMessage-Likes">
+                <div class="tweetMessage">
+                    <span class="tweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
+                    <span class="js-TweetMessage-Likes tweetMessage-Likes">
                         <span class="fas fa-heart js-like" data-id="{{ message.id }}"></span>
                         <span class="js-likesCount js-likesMessageId-{{ message.id }}">{{ message.likes.count }}</span>
                     </span>

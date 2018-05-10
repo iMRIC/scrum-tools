@@ -13,8 +13,11 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
     .addEntry('tweet-board', publicFolder + 'tweet-board.js')
+    .addEntry('login', publicFolder + 'login.js')
+
     .addEntry('bootstrapjs', nodeModulesFolder + 'bootstrap/dist/js/bootstrap.js')
     .addEntry('bootstrapcss', nodeModulesFolder + 'bootstrap/dist/css/bootstrap.css')
+
 ;
 
 module.exports = Encore.getWebpackConfig();

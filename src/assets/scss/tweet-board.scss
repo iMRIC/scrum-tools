@@ -1,10 +1,14 @@
 @import '_variables';
 
-.Board {
+.board {
   display: none;
 }
 
-.TweetMessage {
+.tweetForm {
+  margin-right: 40px;
+}
+
+.tweetMessage {
 
   border: 1px solid $color-blue;
   border-radius: 10px;
