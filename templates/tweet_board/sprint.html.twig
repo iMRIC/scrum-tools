@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scrum Toolbox{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('build/tweet-board.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" rel="stylesheet"
+          integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/tweet-board.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block searchForm %}
+    <form class="form-inline my-2 my-lg-0 js-tweetForm tweetForm">
+        <input class="form-control mr-sm-2 js-tweetForm-Message" type="search" placeholder="message" aria-label="Message">
+        <input type="hidden" class="js-tweetForm-Sprint tweetForm-Sprint" name="sprint" value="{{ sprint.id }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tweet!</button>
+    </form>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <div class="container">
+        <h3>Sprint #{{ sprint.number }}</h3>
+        <br>
+        <h5>Tweets during the sprint:</h5>
+        <div id="js-board" class="board">
+            {% for message in sprint.messages %}
+                <div class="tweetMessage">
+                    <span class="tweetMessage-Text--{{ message.likes.count }}">{{ message.message }}</span><br>
+                    <span class="js-TweetMessage-Likes tweetMessage-Likes">
+                        <span class="fas fa-heart js-like" data-id="{{ message.id }}"></span>
+                        <span class="js-likesCount js-likesMessageId-{{ message.id }}">{{ message.likes.count }}</span>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

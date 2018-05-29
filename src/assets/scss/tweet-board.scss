@@ -1,0 +1,95 @@
+@import '_variables';
+
+.board {
+  display: none;
+}
+
+.tweetForm {
+  margin-right: 40px;
+}
+
+.tweetMessage {
+
+  border: 1px solid $color-blue;
+  border-radius: 10px;
+  max-width: 350px;
+  padding: 15px;
+  margin: 15px;
+  color: $color-blue;
+  display: inline-block;
+
+  &-Likes {
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+
+    .fa-heart {
+      cursor: pointer;
+    }
+  }
+
+  &-Text {
+    font-size: 20px;
+
+    &--1 {
+      font-size: 21px;
+    }
+    &--2 {
+      font-size: 22px;
+    }
+    &--3 {
+      font-size: 23px;
+    }
+    &--4 {
+      font-size: 24px;
+    }
+    &--5 {
+      font-size: 25px;
+    }
+    &--6 {
+      font-size: 26px;
+    }
+    &--7 {
+      font-size: 27px;
+    }
+    &--8 {
+      font-size: 28px;
+    }
+    &--9 {
+      font-size: 29px;
+    }
+    &--10 {
+      font-size: 30px;
+    }
+    &--11 {
+      font-size: 31px;
+    }
+    &--12 {
+      font-size: 32px;
+    }
+    &--13 {
+      font-size: 33px;
+    }
+    &--14 {
+      font-size: 34px;
+    }
+    &--15 {
+      font-size: 35px;
+    }
+    &--16 {
+      font-size: 36px;
+    }
+    &--17 {
+      font-size: 37px;
+    }
+    &--18 {
+      font-size: 38px;
+    }
+    &--19 {
+      font-size: 39px;
+    }
+    &--20 {
+      font-size: 40px;
+    }
+  }
+}

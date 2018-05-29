@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scrum Toolbox{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <div class="container">
+        <h1>Hello on Scrum Toolbox!</h1>
+
+        Choose your tool:
+        <ul>
+            <li><a href="{{ path('tweet_board') }}">Tweet board</a></li>
+        </ul>
+    </div>
+{% endblock %}
