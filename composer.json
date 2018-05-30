@@ -1,4 +1,6 @@
 {
+    "name": "iMRIC/scrum-tools",
+    "description": "Scrum Tools project",
     "type": "project",
     "license": "proprietary",
     "require": {
