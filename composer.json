@@ -1,5 +1,5 @@
 {
-    "name": "iMRIC/scrum-tools",
+    "name": "imric/scrum-tools",
     "description": "Scrum Tools project",
     "type": "project",
     "license": "proprietary",
@@ -19,7 +19,7 @@
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/orm-pack": "*",
+        "symfony/orm-pack": "^1.0",
         "symfony/process": "^4.0",
         "symfony/security-bundle": "^4.0",
         "symfony/serializer-pack": "*",
@@ -34,11 +34,11 @@
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/browser-kit": "^4.0",
         "symfony/css-selector": "^4.0",
-        "symfony/debug-pack": "*",
+        "symfony/debug-pack": "^1.0",
         "symfony/dotenv": "^4.0",
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^4.0",
-        "symfony/profiler-pack": "*",
+        "symfony/profiler-pack": "^1.0",
         "symfony/web-server-bundle": "^4.0"
     },
     "config": {
