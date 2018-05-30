@@ -24,11 +24,12 @@ $(document).ready(
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 data: '{"message": "' + message + '", "sprint":"' + API_SPRINT + '/' + sprint + '" }',
-                success: function(response) {
+                success: function() {
                     location.reload();
 
                 },
             });
+            /** global: event */
             event.preventDefault();
         });
 
@@ -52,7 +53,7 @@ $(document).ready(
 );
 
 
-updateLikesCount = function(messageId) {
+window.updateLikesCount = function(messageId) {
     $.ajax({
         url: API_TWEET_MESSAGES + '/' + messageId,
         type: "GET",
