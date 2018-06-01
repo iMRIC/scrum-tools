@@ -10,12 +10,12 @@ services:
     volumes:
       - .:/application
     environment:
-      - MYSQL_ROOT_PASSWORD=dbrootpw
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=dbuser
       - MYSQL_PASSWORD=dbpw
       - MYSQL_DATABASE=scrumtools
     ports:
-      - "8002:3306"
+      - "3306:3306"
 
   webserver:
     image: nginx:alpine
