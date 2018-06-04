@@ -1,9 +1,9 @@
 DOCKER_COMPOSE  = docker-compose
 
-EXEC_PHP        = $(DOCKER_COMPOSE) run php-fpm
+EXEC_PHP        = $(DOCKER_COMPOSE) run php-fpm php
 EXEC_JS         = $(DOCKER_COMPOSE) run nodejs
 
-SYMFONY         = $(EXEC_PHP) php bin/console
+SYMFONY         = $(EXEC_PHP) bin/console
 COMPOSER        = $(EXEC_PHP) composer
 YARN            = $(EXEC_JS) yarn
 
@@ -50,7 +50,7 @@ no-docker:
 
 db: ## Reset the database and load fixtures
 db: .env vendor
-	@$(EXEC_PHP) php -r 'echo "Wait database...\n"; set_time_limit(15); require __DIR__."/vendor/autoload.php"; (new \Symfony\Component\Dotenv\Dotenv())->load(__DIR__."/.env"); $$u = parse_url(getenv("DATABASE_URL")); for(;;) { if(@fsockopen($$u["host"].":".($$u["port"] ?? 3306))) { break; }}'
+	@$(EXEC_PHP) -r 'echo "Wait database...\n"; set_time_limit(15); require __DIR__."/vendor/autoload.php"; (new \Symfony\Component\Dotenv\Dotenv())->load(__DIR__."/.env"); $$u = parse_url(getenv("DATABASE_URL")); for(;;) { if(@fsockopen($$u["host"].":".($$u["port"] ?? 3306))) { break; }}'
 	-$(SYMFONY) doctrine:database:drop --if-exists --force
 	-$(SYMFONY) doctrine:database:create --if-not-exists
 	$(SYMFONY) doctrine:migrations:migrate --no-interaction --allow-no-migration
