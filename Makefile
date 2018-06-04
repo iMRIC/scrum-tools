@@ -4,7 +4,7 @@ EXEC_PHP        = $(DOCKER_COMPOSE) run php-fpm php
 EXEC_JS         = $(DOCKER_COMPOSE) run nodejs
 
 SYMFONY         = $(EXEC_PHP) bin/console
-COMPOSER        = $(EXEC_PHP) composer
+COMPOSER        = $(DOCKER_COMPOSE) run php-fpm composer
 YARN            = $(EXEC_JS) yarn
 
 ## 
